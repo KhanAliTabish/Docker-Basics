@@ -1,0 +1,40 @@
+Docker Commands
+
+To create a container
+  docker create <image-name>     ||   docker create busybox
+
+To start a container
+  docker start <containerid>
+
+To List running containers in docker
+  docker ps
+
+To list all the containers (running , created, stopped)
+  docker ps --all
+
+To run docker conatiner ( create and start)
+  docker run <image-name>
+
+To run a container with custom Command
+  docker run <image-name> <command>    ||  docker run busybox echo Hi there
+
+To open a shell in container
+  docker run -it <image-name> sh
+
+To execute multiple command
+  docker exec -it <container-id> <command>  || EX: docker run redis (server start) || docker exec -it <container-id> redis-cli
+
+To stop a container
+  docker stop <container-id>  (RECOMMENDED)
+  docker kill <container-id> (When necessary)
+
+To remove all container and free up unused space
+  docker system prune
+
+To build and run image 
+  docker build . & docker run <image-id> || docker build -t <image-name-tag> .     (. specifies location to lok for file .. in this case HERE)
+
+To map a container port to the port of outside world
+  docker run -p <port on localhost>:<container port> <image-id>
+  docker run -p 8080:8080 tabish/simpleNode
+
